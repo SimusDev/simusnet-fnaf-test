@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b2w6l8pxqdxdw"]
+
+[ext_resource type="Script" uid="uid://bn2hg4du2ex1d" path="res://scenes/main_menu/menu.gd" id="1_0qkqs"]
+[ext_resource type="PackedScene" uid="uid://hrxhyonc0ekc" path="res://scenes/server_list/server_list.tscn" id="2_6ufdq"]
+
+[node name="MainMenu" type="Control" unique_id=485199822]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qkqs")
+
+[node name="BtnContainer" type="VBoxContainer" parent="." unique_id=415828295]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.22200002
+anchor_bottom = 1.0
+offset_right = 0.25598145
+alignment = 1
+
+[node name="Host" type="Button" parent="BtnContainer" unique_id=1281937393]
+layout_mode = 2
+text = "Host"
+flat = true
+alignment = 0
+
+[node name="Connect" type="Button" parent="BtnContainer" unique_id=1765442607]
+layout_mode = 2
+text = "Connect"
+flat = true
+alignment = 0
+
+[node name="Popups" type="Control" parent="." unique_id=1878591956]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_left = 0.22222222
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ServerList" parent="Popups" unique_id=241270569 instance=ExtResource("2_6ufdq")]
+layout_mode = 1

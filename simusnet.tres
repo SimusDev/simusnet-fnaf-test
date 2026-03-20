@@ -1,6 +1,15 @@
-[gd_resource type="Resource" script_class="SimusNetSettings" format=3]
+[gd_resource type="Resource" script_class="SimusNetSettings" format=3 uid="uid://cedtce2bamovm"]
 
-[ext_resource type="Script" path="res://addons/simusdev/SimusNet/SimusNetSettings.gd" id="1_dey0v"]
+[ext_resource type="Script" uid="uid://mvkfnwik8m3v" path="res://addons/simusdev/SimusNet/SimusNetSettings.gd" id="1_dey0v"]
+[ext_resource type="Texture2D" uid="uid://bcj8d8by0yi6q" path="res://addons/simusdev/Game/icons/ui_icon_animatronic.png" id="2_v3cy0"]
+[ext_resource type="Script" uid="uid://bat86rfqq0w14" path="res://addons/simusdev/SimusNet/SimusNetServerInfo.gd" id="3_hjdl5"]
+
+[sub_resource type="Resource" id="Resource_v3cy0"]
+script = ExtResource("3_hjdl5")
+name = "SimusNet Fnaf Server"
+icon = ExtResource("2_v3cy0")
+metadata/_custom_type_script = "uid://bat86rfqq0w14"
 
 [resource]
 script = ExtResource("1_dey0v")
+server_info = SubResource("Resource_v3cy0")
