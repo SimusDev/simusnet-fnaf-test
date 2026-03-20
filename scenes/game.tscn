@@ -1,28 +1,14 @@
 [gd_scene format=3 uid="uid://03qsamaxaclm"]
 
 [ext_resource type="Script" uid="uid://imhh1kugqh4m" path="res://addons/simusdev/SimusNet/SimusNetNodePlayerSpawner.gd" id="1_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bcj8d8by0yi6q" path="res://addons/simusdev/Game/icons/ui_icon_animatronic.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bgemxy8j8sr4p" path="res://prefabs/character/player.tscn" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://dl3jjrprm60p8" path="res://prefabs/interactables/door_base.tscn" id="4_lbhrr"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_yqjtg"]
-sky_material = SubResource("ProceduralSkyMaterial_uwrxv")
-
-[sub_resource type="Environment" id="Environment_lnu2h"]
-background_mode = 2
-sky = SubResource("Sky_yqjtg")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
-albedo_texture = ExtResource("1_uwrxv")
-uv1_triplanar = true
+[ext_resource type="PackedScene" uid="uid://cwqs2jrwpfh3r" path="res://scenes/levels/fnaf/fnaf.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node3D" unique_id=1012567948]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1483423642]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="SimusNetNodePlayerSpawner" type="Node" parent="." unique_id=727884378 node_paths=PackedStringArray("spawnpoints", "root")]
 script = ExtResource("1_lnu2h")
@@ -31,29 +17,15 @@ spawnpoints = [NodePath("../sp1"), NodePath("../sp2"), NodePath("../sp3")]
 root = NodePath("../Players")
 metadata/_custom_type_script = "uid://imhh1kugqh4m"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=670100842]
-environment = SubResource("Environment_lnu2h")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1055955868]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1237109428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-use_collision = true
-size = Vector3(25, 1, 25)
-material = SubResource("StandardMaterial3D_yqjtg")
-
 [node name="Players" type="Node3D" parent="." unique_id=1867998995]
 
 [node name="sp1" type="Node3D" parent="." unique_id=670642852]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0)
 
 [node name="sp2" type="Node3D" parent="." unique_id=348539746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1)
 
 [node name="sp3" type="Node3D" parent="." unique_id=811408587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
 
-[node name="DoorBase" parent="." unique_id=171626294 instance=ExtResource("4_lbhrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02343, 0)
+[node name="FnafMap" parent="." unique_id=796087955 instance=ExtResource("3_lnu2h")]
