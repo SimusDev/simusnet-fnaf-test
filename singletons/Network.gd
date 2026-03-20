@@ -35,10 +35,10 @@ func _ready() -> void:
 		create_server(simusnet_settings.server_info.port)
 
 func _on_connected() -> void:
-	get_tree().change_scene_to_file("res://src/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_disconnected() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 func _on_cmd_executed(cmd: SD_ConsoleCommand) -> void:
 	var code = cmd.get_code()
