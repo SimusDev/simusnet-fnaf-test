@@ -13,7 +13,6 @@ bg_color = Color(0.1, 0.1, 0.1, 0.6)
 corner_detail = 5
 
 [node name="ServerList" type="Control" unique_id=241270569 node_paths=PackedStringArray("server_listener", "container")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
