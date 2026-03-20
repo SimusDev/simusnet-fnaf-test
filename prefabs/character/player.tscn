@@ -3,8 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="1_4pcmp"]
 [ext_resource type="Script" uid="uid://d1jwapkumdp1u" path="res://addons/simusdev/SimusNet/SimusNetTransform.gd" id="1_vab5e"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_vab5e"]
+[ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_hus3y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vab5e"]
+size = Vector3(1, 1.2568054, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hus3y"]
 size = Vector3(1, 1.9667358, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hus3y"]
@@ -26,6 +30,14 @@ key_jump = "jump"
 key_sprint = "sprint"
 key_crouch = "crouch"
 
+[node name="Crouch" parent="." unique_id=626401592 node_paths=PackedStringArray("camera", "movement", "collision_normal", "collision_crouch", "ceiling_detection", "crouch_camera_position") instance=ExtResource("3_hus3y")]
+camera = NodePath("../Camera")
+movement = NodePath("../Movement")
+collision_normal = NodePath("../Collision")
+collision_crouch = NodePath("../CollisionCrouch")
+ceiling_detection = NodePath("../CeilingRay")
+crouch_camera_position = NodePath("../CrouchCameraPos")
+
 [node name="Camera" parent="." unique_id=156871122 node_paths=PackedStringArray("body") instance=ExtResource("2_vab5e")]
 body = NodePath("..")
 
@@ -34,9 +46,20 @@ script = ExtResource("1_vab5e")
 node = NodePath("..")
 metadata/_custom_type_script = "uid://d1jwapkumdp1u"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=717660802]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0030212402, 0)
+[node name="CrouchCameraPos" type="Node3D" parent="." unique_id=1818833836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42177248, 0)
+
+[node name="CollisionCrouch" type="CollisionShape3D" parent="." unique_id=717660802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35194397, 0)
 shape = SubResource("BoxShape3D_vab5e")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1159665113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0030212402, 0)
+shape = SubResource("BoxShape3D_hus3y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=386094066]
 mesh = SubResource("CapsuleMesh_hus3y")
+
+[node name="CeilingRay" type="RayCast3D" parent="." unique_id=788223683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17573836, 0)
+target_position = Vector3(0, 1, 0)
