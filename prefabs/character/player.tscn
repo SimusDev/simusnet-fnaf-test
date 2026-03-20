@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bgemxy8j8sr4p"]
+
+[ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="1_4pcmp"]
+[ext_resource type="Script" uid="uid://d1jwapkumdp1u" path="res://addons/simusdev/SimusNet/SimusNetTransform.gd" id="1_vab5e"]
+[ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_vab5e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vab5e"]
+size = Vector3(1, 1.9667358, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hus3y"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2091931488]
+
+[node name="SimusNetTransform" type="Node" parent="." unique_id=716359786 node_paths=PackedStringArray("node")]
+script = ExtResource("1_vab5e")
+node = NodePath("..")
+metadata/_custom_type_script = "uid://d1jwapkumdp1u"
+
+[node name="Movement" parent="." unique_id=240765583 node_paths=PackedStringArray("actor") instance=ExtResource("1_4pcmp")]
+actor = NodePath("..")
+key_forward = "forward"
+key_backward = "backward"
+key_left = "left"
+key_right = "right"
+key_jump = "jump"
+key_sprint = "sprint"
+key_crouch = "crouch"
+
+[node name="Camera" parent="." unique_id=156871122 node_paths=PackedStringArray("body") instance=ExtResource("2_vab5e")]
+body = NodePath("..")
+
+[node name="SimusNetTransform" type="Node" parent="Camera" unique_id=1285271974 node_paths=PackedStringArray("node")]
+script = ExtResource("1_vab5e")
+node = NodePath("..")
+metadata/_custom_type_script = "uid://d1jwapkumdp1u"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=717660802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0030212402, 0)
+shape = SubResource("BoxShape3D_vab5e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=386094066]
+mesh = SubResource("CapsuleMesh_hus3y")
