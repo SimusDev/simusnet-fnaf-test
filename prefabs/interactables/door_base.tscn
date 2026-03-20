@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dl3jjrprm60p8"]
+
+[ext_resource type="Script" uid="uid://bjr6wi3ejo2wp" path="res://prefabs/interactables/door_base.gd" id="1_6h723"]
+[ext_resource type="Script" uid="uid://bbi54yqm0qon1" path="res://components/door/ct_door.gd" id="2_37rnh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6h723"]
+
+[node name="DoorBase" type="Node3D" unique_id=171626294 node_paths=PackedStringArray("_component")]
+script = ExtResource("1_6h723")
+_component = NodePath("CT_Door")
+
+[node name="CT_Door" type="Area3D" parent="." unique_id=2273593]
+script = ExtResource("2_37rnh")
+metadata/_custom_type_script = "uid://bbi54yqm0qon1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CT_Door" unique_id=2047591375]
+shape = SubResource("BoxShape3D_6h723")
+
+[connection signal="on_status_changed" from="CT_Door" to="." method="_on_ct_door_on_status_changed"]

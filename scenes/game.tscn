@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://dj0isqmk4sicw"]
+[gd_scene format=3 uid="uid://03qsamaxaclm"]
 
 [ext_resource type="Script" uid="uid://imhh1kugqh4m" path="res://addons/simusdev/SimusNet/SimusNetNodePlayerSpawner.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bcj8d8by0yi6q" path="res://addons/simusdev/Game/icons/ui_icon_animatronic.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bgemxy8j8sr4p" path="res://prefabs/character/player.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dl3jjrprm60p8" path="res://prefabs/interactables/door_base.tscn" id="4_lbhrr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,3 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1)
 
 [node name="sp3" type="Node3D" parent="." unique_id=811408587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1)
+
+[node name="DoorBase" parent="." unique_id=171626294 instance=ExtResource("4_lbhrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02343, 0)
