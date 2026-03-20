@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hrxhyonc0ekc"]
 
 [ext_resource type="Script" uid="uid://dg8qu8ivchsqk" path="res://scenes/server_list/server_list.gd" id="1_qdr1h"]
-[ext_resource type="PackedScene" path="res://scenes/ui/server_list/server_item.tscn" id="2_o4aun"]
+[ext_resource type="PackedScene" uid="uid://bwsmf4yb71nvl" path="res://scenes/server_list/server_item.tscn" id="2_o4aun"]
 [ext_resource type="Script" uid="uid://0d3k6g88vx7f" path="res://addons/simusdev/SimusNet/broadcasting/SimusNetServerListener.gd" id="3_esylr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vaol"]

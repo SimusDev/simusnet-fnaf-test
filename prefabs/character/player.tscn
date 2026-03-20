@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d1jwapkumdp1u" path="res://addons/simusdev/SimusNet/SimusNetTransform.gd" id="1_vab5e"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_vab5e"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_hus3y"]
+[ext_resource type="Script" uid="uid://bukovf5qxgjys" path="res://components/ct_interact_ray3d.gd" id="5_ljx0b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vab5e"]
 size = Vector3(1, 1.2568054, 1)
@@ -39,12 +40,19 @@ ceiling_detection = NodePath("../CeilingRay")
 crouch_camera_position = NodePath("../CrouchCameraPos")
 
 [node name="Camera" parent="." unique_id=156871122 node_paths=PackedStringArray("body") instance=ExtResource("2_vab5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78978014, 0)
 body = NodePath("..")
 
 [node name="SimusNetTransform" type="Node" parent="Camera" unique_id=1285271974 node_paths=PackedStringArray("node")]
 script = ExtResource("1_vab5e")
 node = NodePath("..")
 metadata/_custom_type_script = "uid://d1jwapkumdp1u"
+
+[node name="CT_InteractRay3D" type="RayCast3D" parent="Camera" unique_id=88805048 node_paths=PackedStringArray("entity")]
+collide_with_areas = true
+script = ExtResource("5_ljx0b")
+entity = NodePath("../..")
+metadata/_custom_type_script = "uid://bukovf5qxgjys"
 
 [node name="CrouchCameraPos" type="Node3D" parent="." unique_id=1818833836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42177248, 0)

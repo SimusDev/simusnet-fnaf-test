@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SimusDev="*uid://cvfrshw18g5he"
-Network="*uid://yf11rk88fhrj"
+Network="*uid://cn2vwtdwg8v2i"
 
 [editor_plugins]
 
